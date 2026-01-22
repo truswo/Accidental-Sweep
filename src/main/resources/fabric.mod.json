@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "accidental-sweep",
+  "version": "1.0.0",
+  "name": "Accidental Sweep",
+  "description": "Prevents you from accidentally attacking the wrong mob when using a sword.",
+  "authors": [
+    "Lucy (truswo/wzhazy)"
+  ],
+  "contact": {
+    "homepage": "*",
+    "sources": "https://github.com/truswo/Accidental-Sweep"
+  },
+
+  "license": "MIT",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "me.truswo.accidentalSweep.client.AccidentalSweepDataGenerator"
+    ],
+    "client": [
+      "me.truswo.accidentalSweep.client.AccidentalSweepClient"
+    ],
+    "main": [
+      "me.truswo.accidentalSweep.AccidentalSweep"
+    ]
+  },
+  "mixins": [
+    "accidental-sweep.mixins.json"
+    ,{
+      "config": "accidental-sweep.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": [
+      "1.21.9",
+      "1.21.10"
+    ]
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
