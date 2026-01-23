@@ -32,6 +32,8 @@ public abstract class PlayerEntityMixin {
                     || Arrays.asList(petMobs).contains(livingEntity3.getType().toString())) // makes sure that petMobs are not going to be hit
             {
                 livingEntity3.setInvulnerable(true);
+                // AccidentalSweep.LOGGER.info("invulnerable checked");
+                // AccidentalSweep.LOGGER.info(livingEntity3.getType().toString());
             }
         }
     }
@@ -49,7 +51,7 @@ public abstract class PlayerEntityMixin {
                             || Arrays.asList(petMobs).contains(livingEntity3.getType().toString()))    // looks if livingEntity3 is inside neutralMobs or passiveMobs
                     && livingEntity3.isInvulnerable()) {
                 livingEntity3.setInvulnerable(false);
-                AccidentalSweep.LOGGER.info("invulnerable unchecked");
+                // AccidentalSweep.LOGGER.info("invulnerable unchecked");
             }
         }
 
@@ -57,7 +59,7 @@ public abstract class PlayerEntityMixin {
         AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             entity.getDamageSources().playerAttack(player);
             if (Arrays.asList(petMobs).contains(entity.getType().toString())
-            && ((PlayerEntity)(Object)this).isOnGround()) {
+            && player.isOnGround()) {
                 return ActionResult.FAIL;
             }
             return ActionResult.PASS;
