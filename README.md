@@ -1,4 +1,4 @@
-<div justify-self="center">
+<div align="center">
 
 <img src="https://github.com/truswo/Accidental-Sweep/blob/1.21.9/1.21.10/src/main/resources/icon.png?raw=true" width=250px alt="A sweep attack particle, on a blueish black background with a red outline, and a semi-transparent red X symbol in a pixel-art style crossing it.">
 
