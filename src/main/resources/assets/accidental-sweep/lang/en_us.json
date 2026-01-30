@@ -1,0 +1,17 @@
+{
+  "modmenu.descriptionTranslation.accidental-sweep": "Prevents you from accidentally attacking the wrong mob when using a sword.",
+
+  "accidental-sweep.config":  "Accidental Sweep Settings",
+
+  "accidental-sweep.config.shouldRun.prefix": "§lMain Configs:§r",
+    "accidental-sweep.config.shouldRun": "  Activated",
+    "accidental-sweep.config.shouldRun.desc": "Set to §oFalse§r to turn off the mod.",
+
+  "accidental-sweep.config.neutralMobs.prefix": "§lMob Lists:§r",
+    "accidental-sweep.config.neutralMobs": "  neutralMobs",
+      "accidental-sweep.config.neutralMobs.desc": "Ignores the sweep attack, unless the main target is the same mobType as it. \n§eINFO:§r New entries §lshould§r follow this pattern: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r.",
+    "accidental-sweep.config.passiveMobs": "  passiveMobs",
+      "accidental-sweep.config.passiveMobs.desc": "Ignores the sweep attack, unless the main target is the same mobType as it. \n§eINFO:§r New entries §lshould§r follow this pattern: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r.",
+    "accidental-sweep.config.petMobs": "  petMobs",
+      "accidental-sweep.config.petMobs.desc": "Cannot be attacked by the player in any way, unless the player is §lnot§r standing on ground. \n\n§eINFO:§r New entries §lshould§r follow this pattern: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r."
+}

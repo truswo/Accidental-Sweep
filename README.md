@@ -10,7 +10,10 @@ Prevents you from accidentally attacking the wrong mob when using a sword.
 
 ## Overview
 
-It works by making certain mobs invulnerable right before the game does the sweep attack, and making it vulnerable again after it. It's probably not the best way to do it, but it works.
+It works by making certain mobs invulnerable right before the game does the sweep attack, and making it vulnerable again after it. 
+
+*It's probably not the best way to do it, but it works.*
+
 **(This may make mobs outside the list to become invulnerable due to logic errors and may cause some problems with mods that use/modify the invulnerable state)**
 
 It has three different lists based of the [Minecraft Wiki](https://minecraft.wiki/w/Mob#Neutral_mobs)
@@ -25,11 +28,12 @@ It has three different lists based of the [Minecraft Wiki](https://minecraft.wik
 ## Features
 
 - [X] Weapons with sweep attack don't attack neutral/passive mobs when you are attacking a different mob
-- [ ] Allows you to add or remove mobs to the mob lists [TODO]
-- [ ] Control the mod with Mod Menu [TODO]
-- [ ] Support for modded mobs [TODO]
-- [ ] Allows you to turn On/Off the mod [TODO]
-- [ ] Prevent these mobs from dying in explosions [TODO; not guaranteed]
+- [X] Allows you to add or remove mobs to the mob lists
+- [X] Control the mod with Mod Menu
+- [X] Allows you to turn On/Off the mod
+- [X] Portuguese translations
+- [ ] Support for modded mobs **[TODO]**
+- [ ] Prevent these mobs from dying in explosions **[TODO; not guaranteed]**
 
 
 ## Default Lists

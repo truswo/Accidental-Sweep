@@ -11,55 +11,63 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Arrays;
-
-import static me.truswo.accidentalSweep.list.mobList.*;
-
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
-
-    // Checks if entity type is inside neutralMobs, passiveMobs or petMobs and target's isn't inside neutralMobs, passiveMobs or petMobs, then makes it invulnerable
     @Inject(
             method = "attack",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;getAttackKnockbackAgainst(Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/damage/DamageSource;)F", shift = At.Shift.AFTER)
     )
     private void a(Entity target, CallbackInfo ci) {
+
+        // Checks if entity type is inside neutralMobs, passiveMobs or petMobs and target's isn't inside neutralMobs, passiveMobs or petMobs, then makes it invulnerable
         for (LivingEntity livingEntity3 : ((PlayerEntity)(Object)this).getEntityWorld().getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(1.0, 0.25, 1.0))) {
-            if ((Arrays.asList(neutralMobs).contains(livingEntity3.getType().toString())
-                    || Arrays.asList(passiveMobs).contains(livingEntity3.getType().toString())
-                    || Arrays.asList(petMobs).contains(livingEntity3.getType().toString()))    // looks if livingEntity3 is inside neutralMobs, passiveMobs or petMobs
-                    && target.getType() != livingEntity3.getType() // looks if target type isn't the same as livingEntity3 type
-                    || Arrays.asList(petMobs).contains(livingEntity3.getType().toString())) // makes sure that petMobs are not going to be hit
-            {
+            if (
+                (
+                    (AccidentalSweep.CONFIG.shouldRun) // Checks if the mod is enabled or not
+                    && (
+                        AccidentalSweep.CONFIG.neutralMobs.contains(livingEntity3.getType().toString()) // Checks if livingEntity3 is inside neutralMobs
+                        || AccidentalSweep.CONFIG.passiveMobs.contains(livingEntity3.getType().toString())  // Checks if livingEntity3 is inside passiveMobs
+                        || AccidentalSweep.CONFIG.petMobs.contains(livingEntity3.getType().toString())  // Checks if livingEntity3 is inside petMobs
+                    )
+                    && target.getType() != livingEntity3.getType() // Checks if target type isn't the same as livingEntity3 type
+                    || AccidentalSweep.CONFIG.petMobs.contains(livingEntity3.getType().toString())  // Checks sure that petMobs are not going to be hit
+                )
+            ) {
                 livingEntity3.setInvulnerable(true);
-                // AccidentalSweep.LOGGER.info("invulnerable checked");
-                // AccidentalSweep.LOGGER.info(livingEntity3.getType().toString());
             }
         }
     }
 
-    // Checks if entity type is inside "neutralMobs" or "passiveMobs" and is invulnerable, then makes it vulnerable
     @Inject(
             method = "attack",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentHelper;onTargetDamaged(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/Entity;Lnet/minecraft/entity/damage/DamageSource;)V", shift = At.Shift.AFTER)
     )
     private void b(Entity target, CallbackInfo ci) {
+
+        // Checks if entity type is inside neutralMobs or passiveMobs and is invulnerable, then makes it vulnerable
         for (LivingEntity livingEntity3 : ((PlayerEntity)(Object)this).getEntityWorld().getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(1.0, 0.25, 1.0))) {
             if (
-                    (Arrays.asList(neutralMobs).contains(livingEntity3.getType().toString())
-                            || Arrays.asList(passiveMobs).contains(livingEntity3.getType().toString())
-                            || Arrays.asList(petMobs).contains(livingEntity3.getType().toString()))    // looks if livingEntity3 is inside neutralMobs or passiveMobs
-                            && livingEntity3.isInvulnerable()) {
+                    (
+                        AccidentalSweep.CONFIG.neutralMobs.contains(livingEntity3.getType().toString()) // Checks if livingEntity3 is inside neutralMobs
+                            || AccidentalSweep.CONFIG.passiveMobs.contains(livingEntity3.getType().toString())  // Checks if livingEntity3 is inside passiveMobs
+                            || AccidentalSweep.CONFIG.petMobs.contains(livingEntity3.getType().toString())  // Checks if livingEntity3 is inside petMobs
+                    )
+                    && livingEntity3.isInvulnerable()   // Checks if livingEntity3 is invulnerable
+            ) {
                 livingEntity3.setInvulnerable(false);
-                // AccidentalSweep.LOGGER.info("invulnerable unchecked");
             }
         }
 
-
+        // Check if main entity is inside petMobs and if the player isn't on the ground, then makes the attack fail
         AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             entity.getDamageSources().playerAttack(player);
-            if (Arrays.asList(petMobs).contains(entity.getType().toString())
-                    && player.isOnGround()) {
+            if (
+                (AccidentalSweep.CONFIG.shouldRun)  // Checks if the mod is enabled
+                && (
+                    AccidentalSweep.CONFIG.petMobs.contains(entity.getType().toString())    // Checks if entity is inside petMobs
+                    && player.isOnGround()
+                )
+            ) {
                 return ActionResult.FAIL;
             }
             return ActionResult.PASS;

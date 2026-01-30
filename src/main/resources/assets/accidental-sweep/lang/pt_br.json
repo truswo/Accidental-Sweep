@@ -1,0 +1,17 @@
+{
+  "modmenu.descriptionTranslation.accidental-sweep": "Te previne de atacar acidentalmente o mob errado enquanto usa uma espada.",
+
+  "accidental-sweep.config":  "Opções do Accidental Sweep",
+
+  "accidental-sweep.config.shouldRun.prefix": "§lConfigurações Gerais:§r",
+    "accidental-sweep.config.shouldRun": "  Ativado",
+    "accidental-sweep.config.shouldRun.desc": "Coloque em §oFalse§r para desabilitar o mod.",
+
+  "accidental-sweep.config.neutralMobs.prefix": "§lListas De Mobs:§r",
+    "accidental-sweep.config.neutralMobs": "  neutralMobs",
+      "accidental-sweep.config.neutralMobs.desc": "Ignora ataques laterais, a não ser que o alvo principal seja do mesmo tipo que ele. \n\n§eINFO:§r Novas entradas §ldevem§r seguir esse padrão: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r ou §o\"entity.minecraft.[MOB_ID]\"§r.",
+    "accidental-sweep.config.passiveMobs": "  passiveMobs",
+      "accidental-sweep.config.passiveMobs.desc": "Ignora ataques laterais, a não ser que o alvo principal seja do mesmo tipo que ele. \n\n§eINFO:§r Novas entradas §ldevem§r seguir esse padrão: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r ou §o\"entity.minecraft.[MOB_ID]\"§r.",
+    "accidental-sweep.config.petMobs": "  petMobs",
+      "accidental-sweep.config.petMobs.desc": "Não pode ser atacado pelo player de nenhuma forma, a não ser que o player §lnão§r  esteja no chão. \n\n§eINFO:§r Novas entradas §ldevem§r seguir esse padrão: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r ou §o\"entity.minecraft.[MOB_ID]\"§r."
+}

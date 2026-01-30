@@ -42,9 +42,22 @@
     "minecraft": [
       "1.21.9",
       "1.21.10"
-    ]
+    ],
+
+    "fzzy_config": ">=0.4.3"
   },
   "suggests": {
-    "modmenu": "*"
+    "modmenu": ">=17.0.0"
+  },
+  "custom": {
+    "fzzy_config": [
+      "accidental-sweep"
+    ],
+    "modmenu": {
+      "links": {
+        "modmenu.github_releases": "https://github.com/truswo/Accidental-Sweep",
+        "modmenu.modrinth": "https://modrinth.com/project/Fde2QMZc"
+      }
+    }
   }
 }
