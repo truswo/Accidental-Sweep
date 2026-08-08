@@ -4,71 +4,71 @@
 
 # Accidental Sweep
 
-Prevents you from accidentally attacking the wrong mob when using a sword.
+Prevents you from accidentally attacking the wrong mob when using a sword
 
 </div>
 
 ## Overview
 
-It works by making certain mobs invulnerable right before the game does the sweep attack, and making it vulnerable again after it. 
+It works by adding new check in the Sweeping Attack (and normal attack if the target is a Pet Mob) for every mob being attacked, and preventing the attack from happening if the mob matches this check.
 
-*It's probably not the best way to do it, but it works.*
+It has three different lists based of the [Minecraft Wiki](https://minecraft.wiki/w/Mob#List_of_mobs)
 
-**(This may make mobs outside the list to become invulnerable due to logic errors and may cause some problems with mods that use/modify the invulnerable state)**
+- **Neutral Mobs** are immune to Sweep Attacks, unless the main target is the type as that mob. Attacking it does a normal Sweep Attack that **can hit mobs of the same type** as it and mobs outside the lists.
 
-It has three different lists based of the [Minecraft Wiki](https://minecraft.wiki/w/Mob#Neutral_mobs)
 
-- passiveMobs and neutralMobs currently act the same way, ignoring sweeping attacks unless the main target is the same mob type as it.
+- **Passive Mobs** works in a similar way to Neutral Mobs, the only difference is that hitting does damage to the mob itself and mobs outside the lists, it **does not attack other mobs of the same type**.
 
   ![neutralMobsGIF.gif](neutralMobsGIF.gif)
 
-- petMobs **require** the player to not be on the ground to attack it, regardless of how the player is attacking it.
+- **Pet Mobs** can only be attacked if the player is **sneaking** or hitting a **Critical Attack**, attacking these mobs will only attack the main target.
 
   ![petMobsGIF.gif](petMobsGIF.gif)
 ## Features
 
-- [X] Weapons with sweep attack don't attack neutral/passive mobs when you are attacking a different mob
+- [X] Weapons with a Sweep Attack will not attack neutral/passive/pet mobs when you are attacking a different mob
+- [X] Allows you to bypass the prevention when you are sneaking, hitting a Critical Attack or when the mob is attacking you (Can be disabled in settings)
 - [X] Allows you to add or remove mobs to the mob lists
+- [X] The mod is client-sided and *should* not need to be installed on server
 - [X] Control the mod with Mod Menu
 - [X] Allows you to turn On/Off the mod
-- [X] Portuguese translations
+- [X] Brazilian Portuguese translations
 - [ ] Support for modded mobs **[TODO]**
 - [ ] Prevent these mobs from dying in explosions **[TODO; not guaranteed]**
+- [ ] Porting to other versions **[TODO]**
 
 
 ## Default Lists
 
-| petMobs                           | passiveMobs                    | neutralMobs                       |
+###### *New entries in the lists should use the **translation key** of the desired mob.*
+
+| **petMobs**                       | **passiveMobs**                | **neutralMobs**                   |
 |:----------------------------------|:-------------------------------|:----------------------------------|
 | entity.minecraft.wolf             | entity.minecraft.allay         | entity.minecraft.bee              |
 | entity.minecraft.cat              | entity.minecraft.armadillo     | entity.minecraft.cave_spider      |
-| entity.minecraft.parrot           | entity.minecraft.axolotl       | entity.minecraft.dolphin          |
-| entity.minecraft.villager         | entity.minecraft.bat           | entity.minecraft.drowned          |
-| entity.minecraft.wandering_trader | entity.minecraft.camel         | entity.minecraft.enderman         |
-|                                   | entity.minecraft.chicken       | entity.minecraft.fox              |
-|                                   | entity.minecraft.cod           | entity.minecraft.goat             |
-|                                   | entity.minecraft.copper_golem  | entity.minecraft.iron_golem       |
-|                                   | entity.minecraft.cow           | entity.minecraft.llamma           |
-|                                   | entity.minecraft.donkey        | entity.minecraft.nautilus         |
-|                                   | entity.minecraft.frog          | entity.minecraft.panda            |
-|                                   | entity.minecraft.glow_squid    | entity.minecraft.piglin           |
-|                                   | entity.minecraft.happy_ghast   | entity.minecraft.polar_bear       |
-|                                   | entity.minecraft.horse         | entity.minecraft.pufferfish       |
-|                                   | entity.minecraft.mooshroom     | entity.minecraft.trader_llamma    |
-|                                   | entity.minecraft.mule          | entity.minecraft.zombie_nautilus  |
-|                                   | entity.minecraft.ocelot        | entity.minecraft.zombified_piglin |
-|                                   | entity.minecraft.pig           | entity.minecraft.camer_husk       |
-|                                   | entity.minecraft.rabbit        | entity.minecraft.skeleton_horse   |
-|                                   | entity.minecraft.salmon        | entity.minecraft.zombie_horse     |
-|                                   | entity.minecraft.sheep         |                                   |
-|                                   | entity.minecraft.sniffer       |                                   |
-|                                   | entity.minecraft.snow_golem    |                                   |
+| entity.minecraft.parrot           | entity.minecraft.bat           | entity.minecraft.dolphin          |
+| entity.minecraft.villager         | entity.minecraft.camel         | entity.minecraft.drowned          |
+| entity.minecraft.wandering_trader | entity.minecraft.chicken       | entity.minecraft.enderman         |
+| entity.minecraft.axolotl          | entity.minecraft.cod           | entity.minecraft.fox              |
+| entity.minecraft.frog             | entity.minecraft.copper_golem  | entity.minecraft.goat             |
+| entity.minecraft.horse            | entity.minecraft.cow           | entity.minecraft.iron_golem       |
+|                                   | entity.minecraft.donkey        | entity.minecraft.llamma           |
+|                                   | entity.minecraft.glow_squid    | entity.minecraft.nautilus         |
+|                                   | entity.minecraft.happy_ghast   | entity.minecraft.panda            |
+|                                   | entity.minecraft.mooshroom     | entity.minecraft.piglin           |
+|                                   | entity.minecraft.mule          | entity.minecraft.polar_bear       |
+|                                   | entity.minecraft.ocelot        | entity.minecraft.pufferfish       |
+|                                   | entity.minecraft.pig           | entity.minecraft.trader_llamma    |
+|                                   | entity.minecraft.rabbit        | entity.minecraft.zombie_nautilus  |
+|                                   | entity.minecraft.salmon        | entity.minecraft.zombified_piglin |
+|                                   | entity.minecraft.sheep         | entity.minecraft.camer_husk       |
+|                                   | entity.minecraft.sniffer       | entity.minecraft.skeleton_horse   |
+|                                   | entity.minecraft.snow_golem    | entity.minecraft.zombie_horse     |
 |                                   | entity.minecraft.squid         |                                   |
 |                                   | entity.minecraft.strider       |                                   |
 |                                   | entity.minecraft.tadpole       |                                   |
 |                                   | entity.minecraft.tropical_fish |                                   |
 |                                   | entity.minecraft.turtle        |                                   |
-
 ## Author
 
 - [Lucy (truswo/wzhazy)](https://www.github.com/truswo)

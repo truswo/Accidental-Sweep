@@ -17,10 +17,20 @@ public class ModConfig extends Config {
 
     public boolean shouldRun = true;
 
+    public boolean neutralMobsBol = true;
+    public boolean passiveMobsBol = true;
+    public boolean petMobsBol = true;
+
     @ConfigGroup.Pop
     public List<String> neutralMobs = new ArrayList<>(List.of(mobList.neutralMobs));
 
     public List<String> passiveMobs = new ArrayList<>(List.of(mobList.passiveMobs));
 
     public List<String> petMobs = new ArrayList<>(List.of(mobList.petMobs));
+
+    @ConfigGroup.Pop
+    public boolean sneakBypass = true;
+    public boolean critBypass = true;
+    public boolean bypassOnAttack = true;
+    public boolean bypassOnAttackWithSweep = true;
 }

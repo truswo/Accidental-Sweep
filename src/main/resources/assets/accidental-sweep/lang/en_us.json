@@ -1,17 +1,34 @@
-{
-  "modmenu.descriptionTranslation.accidental-sweep": "Prevents you from accidentally attacking the wrong mob when using a sword.",
+  {
+    "modmenu.descriptionTranslation.accidental-sweep": "Prevents you from accidentally attacking the wrong mob when using a sword",
 
-  "accidental-sweep.config":  "Accidental Sweep Settings",
+    "accidental-sweep.config":  "Accidental Sweep Settings",
 
-  "accidental-sweep.config.shouldRun.prefix": "§lMain Configs:§r",
-    "accidental-sweep.config.shouldRun": "  Activated",
-    "accidental-sweep.config.shouldRun.desc": "Set to §oFalse§r to turn off the mod.",
+    "accidental-sweep.config.shouldRun.prefix": "§lMain Configs:§r",
+      "accidental-sweep.config.shouldRun": "   Enabled",
+      "accidental-sweep.config.shouldRun.desc": "Set to §oFalse§r to turn off the mod",
 
-  "accidental-sweep.config.neutralMobs.prefix": "§lMob Lists:§r",
-    "accidental-sweep.config.neutralMobs": "  neutralMobs",
-      "accidental-sweep.config.neutralMobs.desc": "Ignores the sweep attack, unless the main target is the same mobType as it. \n§eINFO:§r New entries §lshould§r follow this pattern: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r.",
-    "accidental-sweep.config.passiveMobs": "  passiveMobs",
-      "accidental-sweep.config.passiveMobs.desc": "Ignores the sweep attack, unless the main target is the same mobType as it. \n§eINFO:§r New entries §lshould§r follow this pattern: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r.",
-    "accidental-sweep.config.petMobs": "  petMobs",
-      "accidental-sweep.config.petMobs.desc": "Cannot be attacked by the player in any way, unless the player is §lnot§r standing on ground. \n\n§eINFO:§r New entries §lshould§r follow this pattern: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r."
-}
+      "accidental-sweep.config.neutralMobsBol": "      Neutral Mobs hit prevention",
+      "accidental-sweep.config.neutralMobsBol.desc": "Set to §oFalse§r to disable Neutral Mobs hit prevention",
+      "accidental-sweep.config.passiveMobsBol": "      Passive Mobs hit prevention",
+      "accidental-sweep.config.passiveMobsBol.desc": "Set to §oFalse§r to disable Passive Mobs hit prevention",
+      "accidental-sweep.config.petMobsBol": "      Pet Mobs hit prevention",
+      "accidental-sweep.config.petMobsBol.desc": "Set to §oFalse§r to disable Pet Mobs hit prevention",
+
+    "accidental-sweep.config.neutralMobs.prefix": "§lMob Lists:§r",
+      "accidental-sweep.config.neutralMobs": "   Neutral Mobs",
+      "accidental-sweep.config.neutralMobs.desc": "Neutral mobs cannot normally be attacked by a Sweep Attack. They can only be hit if they are the main target and §lwill§r deal a Sweep Attack that §lcan attack§r other mobs of the same type \n\n§eINFO:§r New entries §lshould§r use the mob translation key. Ex: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r",
+      "accidental-sweep.config.passiveMobs": "   Passive Mobs",
+      "accidental-sweep.config.passiveMobs.desc": "Passive mobs cannot normally be attacked by a Sweep Attack. They can only be hit if they are the main target and §lwill not§r deal a Sweep Attack on other mobs of the same type \n\n§eINFO:§r New entries §lshould§r use the mob translation key. Ex: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r",
+      "accidental-sweep.config.petMobs": "   Pet Mobs",
+      "accidental-sweep.config.petMobs.desc": "Pet mobs cannot normally be attacked by the player in any way, unless the player is sneaking or hitting a Critical Attack \n\n§eINFO:§r New entries §lshould§r use the mob translation key. Ex: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r or §o\"entity.minecraft.[MOB_ID]\"§r",
+
+    "accidental-sweep.config.sneakBypass.prefix": "§lOther Configs:§r",
+      "accidental-sweep.config.sneakBypass": "   Bypass the prevention when sneaking",
+      "accidental-sweep.config.sneakBypass.desc": "Allows you to hit a mob while sneaking, even if they are inside one of the lists (Pet Mobs will only be attacked if they are the main target and will not receive a Sweep Attack)",
+      "accidental-sweep.config.critBypass": "   Bypass the prevention on a critical attack",
+      "accidental-sweep.config.critBypass.desc": "Allows you to hit a critical attack on a mob even if they are inside one of the lists (Only attacks a single mob)",
+      "accidental-sweep.config.bypassOnAttack": "   Bypass the prevention when attacked",
+      "accidental-sweep.config.bypassOnAttack.desc": "Allows you to hit the mob that is attacking you even if they are inside one of the lists (If enabled, Neutral Mobs will receive a Sweep Attack)",
+        "accidental-sweep.config.bypassOnAttackWithSweep": "      Bypass with Sweeping",
+        "accidental-sweep.config.bypassOnAttackWithSweep.desc": "Allows the Sweep Attack to be used on a bypassed attack (Only Neutral Mobs will receive a Sweep Attack)"
+  }

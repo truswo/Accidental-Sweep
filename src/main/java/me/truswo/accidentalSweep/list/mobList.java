@@ -4,7 +4,6 @@ public class mobList {
     public static String[] passiveMobs = {    // List of passive mobs on minecraft.wiki
             "entity.minecraft.allay",
             "entity.minecraft.armadillo",
-            "entity.minecraft.axolotl",
             "entity.minecraft.bat",
             "entity.minecraft.camel",
             "entity.minecraft.chicken",
@@ -12,10 +11,8 @@ public class mobList {
             "entity.minecraft.copper_golem",
             "entity.minecraft.cow",
             "entity.minecraft.donkey",
-            "entity.minecraft.frog",
             "entity.minecraft.glow_squid",
             "entity.minecraft.happy_ghast",
-            "entity.minecraft.horse",
             "entity.minecraft.mooshroom",
             "entity.minecraft.mule",
             "entity.minecraft.ocelot",
@@ -29,7 +26,8 @@ public class mobList {
             "entity.minecraft.strider",
             "entity.minecraft.tadpole",
             "entity.minecraft.tropical_fish",
-            "entity.minecraft.turtle"
+            "entity.minecraft.turtle",
+            "entity.minecraft.sulfur_cube"
     };
 
     public static String[] neutralMobs = {    // List of neutral(and hostile adjacent) mobs on minecraft.wiki
@@ -60,7 +58,10 @@ public class mobList {
             "entity.minecraft.cat",
             "entity.minecraft.parrot",
             "entity.minecraft.villager",
-            "entity.minecraft.wandering_trader"
+            "entity.minecraft.wandering_trader",
+            "entity.minecraft.axolotl",
+            "entity.minecraft.frog",
+            "entity.minecraft.horse"
     };
 
 }

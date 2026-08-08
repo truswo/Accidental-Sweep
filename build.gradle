@@ -1,9 +1,9 @@
 plugins {
-    id 'fabric-loom' version '1.14-SNAPSHOT'
+    id 'fabric-loom' version '1.15-SNAPSHOT'
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = "${mod_version}+${minecraft_version}"
 group = project.maven_group
 
 base {
@@ -34,11 +34,6 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
 
-//    maven {
-//        name = "owo-lib"
-//        url 'https://maven.wispforest.io/releases/'
-//    }
-
     maven {
         name = "FzzyMaven"
         url = "https://maven.fzzyhmstrs.me/"
@@ -53,14 +48,6 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-//    modImplementation "io.wispforest:owo-lib:${project.owo_version}"
-//    // only if you plan to use owo-config
-//    annotationProcessor "io.wispforest:owo-lib:${project.owo_version}"
-//
-//    // include this if you don't want force your users to install owo
-//    // sentinel will warn them and give the option to download it automatically
-//    include "io.wispforest:owo-sentinel:${project.owo_version}"
 
     modImplementation "me.fzzyhmstrs:fzzy_config:${project.fzzyConfigVersion}"
 }

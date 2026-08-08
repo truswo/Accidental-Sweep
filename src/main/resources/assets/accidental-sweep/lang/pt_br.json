@@ -1,17 +1,34 @@
 {
-  "modmenu.descriptionTranslation.accidental-sweep": "Te previne de atacar acidentalmente o mob errado enquanto usa uma espada.",
+  "modmenu.descriptionTranslation.accidental-sweep": "Te impede de atacar acidentalmente o mob errado enquanto usa uma espada",
 
   "accidental-sweep.config":  "Opções do Accidental Sweep",
 
   "accidental-sweep.config.shouldRun.prefix": "§lConfigurações Gerais:§r",
-    "accidental-sweep.config.shouldRun": "  Ativado",
+    "accidental-sweep.config.shouldRun": "  Habilitado",
     "accidental-sweep.config.shouldRun.desc": "Coloque em §oFalse§r para desabilitar o mod.",
 
+    "accidental-sweep.config.neutralMobsBol": "      Prevenção de hit em Mobs Neutros",
+    "accidental-sweep.config.neutralMobsBol.desc": "Coloque em §oFalse§r para desativar a prevenção de hit em Mobs Neutros",
+    "accidental-sweep.config.passiveMobsBol": "      Prevenção de hit em Mobs Pacificos",
+    "accidental-sweep.config.passiveMobsBol.desc": "Coloque em §oFalse§r para desativar a prevenção de hit em Mobs Pacificos",
+    "accidental-sweep.config.petMobsBol": "      Prevenção de hit em Mobs Amigáveis",
+    "accidental-sweep.config.petMobsBol.desc": "Coloque em §oFalse§r para desativar a prevenção de hit em Mobs Amigáveis",
+
   "accidental-sweep.config.neutralMobs.prefix": "§lListas De Mobs:§r",
-    "accidental-sweep.config.neutralMobs": "  neutralMobs",
-      "accidental-sweep.config.neutralMobs.desc": "Ignora ataques laterais, a não ser que o alvo principal seja do mesmo tipo que ele. \n\n§eINFO:§r Novas entradas §ldevem§r seguir esse padrão: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r ou §o\"entity.minecraft.[MOB_ID]\"§r.",
-    "accidental-sweep.config.passiveMobs": "  passiveMobs",
-      "accidental-sweep.config.passiveMobs.desc": "Ignora ataques laterais, a não ser que o alvo principal seja do mesmo tipo que ele. \n\n§eINFO:§r Novas entradas §ldevem§r seguir esse padrão: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r ou §o\"entity.minecraft.[MOB_ID]\"§r.",
-    "accidental-sweep.config.petMobs": "  petMobs",
-      "accidental-sweep.config.petMobs.desc": "Não pode ser atacado pelo player de nenhuma forma, a não ser que o player §lnão§r  esteja no chão. \n\n§eINFO:§r Novas entradas §ldevem§r seguir esse padrão: \n§o\"entity.[MOD_ID].[MOB_ID]\"§r ou §o\"entity.minecraft.[MOB_ID]\"§r."
-}
+    "accidental-sweep.config.neutralMobs": "  Mobs Neutros",
+    "accidental-sweep.config.neutralMobs.desc": "Mobs neutros não conseguem ser atacados por Ataques Laterais da maneira padrão. Eles só conseguem ser atacados se forem o alvo principal e §vão§r causar um Ataque Lateral que §pode atacar§r outros mobs do mesmo tipo \n\n§eINFO:§r Novas entradas §ldevem§r usar a chave de tradução do mob. Ex: \n§o\"entity.[ID_DO_MOD].[ID_DO_MOB]\"§r ou §o\"entity.minecraft.[ID_DO_MOB]\"§r",
+    "accidental-sweep.config.passiveMobs": "  Mobs Pacificos",
+    "accidental-sweep.config.passiveMobs.desc": "Mobs pacificos não conseguem ser atacados por Ataques Laterais da maneira padrão. Eles só conseguem ser atacados se forem o alvo principal e §lnão vão§r causar um Ataque Lateral em outros mobs do mesmo tipo \n\n§eINFO:§r Novas entradas §ldevem§r usar a chave de tradução do mob. Ex: \n§o\"entity.[ID_DO_MOD].[ID_DO_MOB]\"§r ou §o\"entity.minecraft.[ID_DO_MOB]\"§r",
+    "accidental-sweep.config.petMobs": "  Mobs Amigáveis",
+    "accidental-sweep.config.petMobs.desc": "Mobs amigáveis não conseguem ser atacados pelo jogador de maneira padrão, a não ser que o jogador estiver se agachando ou atingindo um Ataque Critico \n\n§eINFO:§r Novas entradas §ldevem§r usar a chave de tradução do mob. Ex: \n§o\"entity.[ID_DO_MOD].[ID_DO_MOB]\"§r ou §o\"entity.minecraft.[ID_DO_MOB]\"§r",
+
+  "accidental-sweep.config.sneakBypass.prefix": "§lOutras Configurações:§r",
+    "accidental-sweep.config.sneakBypass": "   Ignora a prevenção de hit enquanto estiver agachado",
+    "accidental-sweep.config.sneakBypass.desc": "Te permite atacar o mob enquanto estiver agachado, mesmo se ele estiver em uma das listas (Mobs Amigáveis só podem ser atacados se forem o alvo principal e não vão receber um Ataque Lateral)",
+    "accidental-sweep.config.critBypass": "   Ignora a prevenção de hit em um Ataque Critico",
+    "accidental-sweep.config.critBypass.desc": "Te permite atacar o mob com um ataque critico, mesmo se ele estiver em uma das listas (Só ataca um único mob)",
+    "accidental-sweep.config.bypassOnAttack": "   Ignora a prevenção de hit quando atacado",
+    "accidental-sweep.config.bypassOnAttack.desc": "Te permite atacar o mob que estiver te atacando, mesmo se estiver em uma das listas (Se ativado, mobs neutros irão receber um Ataque Lateral)",
+      "accidental-sweep.config.bypassOnAttackWithSweep": "      Ignorar a prevenção e usar um Ataque Lateral",
+      "accidental-sweep.config.bypassOnAttackWithSweep.desc": "Permite que o Ataque Lateral seja usado em um ataque com prevenção ignorada (Somente Mobs Neutros irão receber o Ataque Lateral)"
+    }

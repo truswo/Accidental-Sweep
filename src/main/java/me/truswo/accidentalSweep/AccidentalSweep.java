@@ -14,5 +14,6 @@ public class AccidentalSweep implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        LOGGER.info(MOD_ID + " finished loading");
     }
 }
