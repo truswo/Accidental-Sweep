@@ -17,13 +17,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PlayerEntityMixin {
 
     // disables the attack if the target is in petMobs
-    @Inject(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;handleAttack(Lnet/minecraft/entity/Entity;)Z"), cancellable = true) // runs right after the original code looks if the target i attackable (line 997)
+    @Inject(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;cannotAttack(Lnet/minecraft/entity/Entity;)Z"), cancellable = true) // runs right after the original code looks if the target is attackable (line 920)
     private void petMobImmunity(Entity target, CallbackInfo ci) {
         var config = AccidentalSweep.CONFIG;
         var plr = ((PlayerEntity) (Object) this);
 
-        // isCrit is the same as bl3 on PlayerEntity.java (line 1024 to 1032)
-        boolean isCrit = plr.getAttackCooldownProgress(0.5F) > 0.9F && plr.fallDistance > 0.0 && !plr.isOnGround() && !plr.isClimbing() && !plr.isTouchingWater() && !plr.hasBlindnessEffect() && !plr.hasVehicle() && target instanceof LivingEntity && !plr.isSprinting();
+        // isCrit is the same as bl3 on PlayerEntity.java (line 940)
+        boolean isCrit = plr.getAttackCooldownProgress(0.5F) > 0.9F && plr.fallDistance > (double)0.0F && !plr.isOnGround() && !plr.isClimbing() && !plr.isTouchingWater() && !plr.hasBlindnessEffect() && !plr.hasVehicle() && target instanceof LivingEntity && !plr.isSprinting();
         if (config.shouldRun    // the mod should be turned on
             && config.petMobsBol    // petMobsBol should be turned on
             && config.petMobs.contains(target.getType().toString())    // the mob should be inside petMobs
@@ -40,7 +40,7 @@ public abstract class PlayerEntityMixin {
     @Definition(id = "squaredDistanceTo", method = "Lnet/minecraft/entity/player/PlayerEntity;squaredDistanceTo(Lnet/minecraft/entity/Entity;)D")
     @Definition(id = "livEntity3", local = @Local(type = LivingEntity.class))
     @Expression("this.squaredDistanceTo(livEntity3) < 9.0")
-    @ModifyExpressionValue(method = "attack", at = @At(value = "MIXINEXTRAS:EXPRESSION")) // runs in the first if statement inside the sweep attack for loop (line 1075 to 1079)
+    @ModifyExpressionValue(method = "doSweepingAttack", at = @At(value = "MIXINEXTRAS:EXPRESSION")) // runs in the 3rd if statement inside the sweep attack for loop (line 1117)
     private boolean disableSweep(boolean original, Entity target, @Local LivingEntity livingEntity3) {
         var config = AccidentalSweep.CONFIG;
         var entityType = livingEntity3.getType().toString();
@@ -53,7 +53,7 @@ public abstract class PlayerEntityMixin {
                 || ((config.bypassOnAttack && config.bypassOnAttackWithSweep)    // bypassOnAttack and bypassOnAttackWithSweep should be turned on
                     && plr.getAttacker() == target && !config.petMobs.contains(entityType) && !config.passiveMobs.contains(entityType))    // the main target should be attacking the player and the mob should not be in petMobs or passiveMobs
             ) {
-                return original;    // returns the original if statement (line 1075 to 1079)
+                return original;    // returns the original if statement (line 1117)
             } else {
                 return false; // disables the if statement
             }
