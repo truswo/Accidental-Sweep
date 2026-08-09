@@ -35,7 +35,7 @@ It has three different lists based of the [Minecraft Wiki](https://minecraft.wik
 - [X] Brazilian Portuguese translations
 - [ ] Support for modded mobs **[TODO]**
 - [ ] Prevent these mobs from dying in explosions **[TODO; not guaranteed]**
-- [ ] Porting to other versions **[TODO]**
+- [ ] Porting to other versions **[TODO; only ported to 1.21.11 currently]**
 
 
 ## Default Lists
